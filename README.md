@@ -1,6 +1,6 @@
-# 3MTT Web Chatbot
+# 3MTT Web Quiz/Chatbot
 
-A 3-Minute Training chatbot with AI-powered responses and dynamic quizzes.
+A Training chatbot with AI-powered responses and dynamic quizzes.
 
 ## Setup and Installation
 
