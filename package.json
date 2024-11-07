@@ -1,0 +1,15 @@
+{
+    "name": "3mtt-web-chatbot",
+    "version": "1.0.0",
+    "description": "3-Minute Training Web Chatbot with AI-powered responses and quizzes",
+    "main": "server/server.js",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "cors": "^2.8.5",
+        "express": "^4.17.1",
+        "openai": "^3.3.0"
+    }
+}

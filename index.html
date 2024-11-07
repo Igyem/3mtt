@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3MTT Web Quiz/Chatbot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gradient-to-r from-blue-500 via-purple-500 to-blue-600 text-gray-200 font-sans antialiased">
+    <!-- Navigation Tabs for Chatbot and Quiz -->
+    <nav class="flex justify-center space-x-4 py-4 bg-gray-800 text-white">
+        <button id="ask3MTTTab" class="px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500">Ask 3MTT</button>
+        <button id="takeQuizTab" class="px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500">Take a Quiz</button>
+    </nav>
+    
+    <header class="bg-teal-600 bg-opacity-60 p-6 shadow-lg flex items-center justify-between">
+        <div class="flex items-center space-x-4">
+            <img src="assets/logo2.png" alt="3MTT Logo" class="h-12 w-12 rounded-full shadow-md">
+            <div>
+                <h1 class="text-3xl font-bold text-gray-900">3MTT Web Quiz/Chatbot</h1>
+                <p class="text-sm font-light text-gray-700">Fast-track your learning with interactive quizzes and AI-powered assistance.</p>
+            </div>
+        </div>
+        <div class="space-x-4">
+            <button id="profileBtn" class="bg-purple-500 text-white px-4 py-2 rounded-lg hover:bg-purple-400">Profile</button>
+            <button id="achievementsBtn" class="bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-400">Achievements</button>
+            <button id="leaderboardBtn" class="bg-yellow-600 text-white px-4 py-2 rounded-lg hover:bg-yellow-500">Leaderboard</button>
+        </div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="container mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <!-- Weekly Goal Section -->
+        <div id="weeklyGoal" class="col-span-2 bg-teal-100 p-4 rounded-lg shadow-lg mb-6">
+            <h2 class="text-xl font-semibold">Weekly Goal</h2>
+            <p>Completed 4 quizzes this week!</p>
+            <progress id="weeklyProgress" value="3" max="5" class="w-full mt-2"></progress>
+        </div>
+
+        <!-- Chatbot Interface (Left Column) -->
+        <section id="chatbot" class="glass p-6 rounded-lg shadow-xl backdrop-blur-lg border border-opacity-10">
+            <h2 class="text-xl font-semibold mb-4">Ask the 3MTT Chatbot</h2>
+            <div id="chatDisplay" class="overflow-y-auto h-60 mb-4 p-4 rounded bg-opacity-50 border border-gray-200">
+                <!-- Chat messages will appear here -->
+            </div>
+            <input id="userInput" type="text" placeholder="Ask a question about 3MTT..." 
+                   class="w-full px-4 py-2 bg-gray-100 text-gray-800 rounded mb-2 border-2 border-gray-300 focus:border-teal-400 outline-none transition">
+            <button id="sendBtn" class="w-full bg-teal-500 text-white px-4 py-2 rounded hover:bg-teal-400 transition">Send</button>
+        </section>
+
+        <!-- Quiz Interface (Right Column) -->
+        <section class="glass p-6 rounded-lg shadow-xl backdrop-blur-lg border border-opacity-10">
+            <h2 class="text-xl font-semibold mb-4">Generate a Quiz</h2>
+            <select id="learningTrack" class="w-full mb-2 border border-gray-300 p-2 rounded bg-gray-100 text-gray-800">
+                <option value="" disabled selected>Select Learning Track</option>
+                <option value="AI / Machine Learning">AI / Machine Learning</option>
+                <option value="Animation">Animation</option>
+                <option value="Cloud Computing">Cloud Computing</option>
+                <option value="UI/UX Design">UI/UX Design</option>
+                <option value="Data Analysis & Visualization">Data Analysis & Visualization</option>
+                <option value="Data Science">Data Science</option>
+                <option value="DevOps">DevOps</option>
+                <option value="Game Development">Game Development</option>
+                <option value="Product Management">Product Management</option>
+                <option value="Quality Assurance">Quality Assurance</option>
+                <option value="Software Development">Software Development</option>
+                <option value="Cybersecurity">Cybersecurity</option>
+            </select>
+            <button id="generateQuizBtn" class="w-full bg-green-500 text-white px-4 py-2 rounded hover:bg-green-400 transition">Generate Quiz</button>
+
+            <!-- Quiz Display Area -->
+            <div id="quizContainer" class="mt-4">
+                <!-- Generated quiz questions will appear here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Recommendations Section with Card Layout -->
+    <section id="recommendations" class="container mx-auto px-4 mt-8">
+        <div class="bg-yellow-100 p-6 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-semibold text-center text-gray-900 mb-4">Recommended for You</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-white p-4 rounded-lg shadow-md flex items-center space-x-4">
+                    <img src="assets/data-science-icon.png" alt="Data Science Icon" class="h-12 w-12">
+                    <div>
+                        <h3 class="font-bold text-lg">Data Science</h3>
+                        <p class="text-gray-700">Deepen your skills with data analysis, machine learning, and more.</p>
+                        <button class="mt-2 bg-yellow-500 text-white px-3 py-1 rounded-lg hover:bg-yellow-400">Explore</button>
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-md flex items-center space-x-4">
+                    <img src="assets/ui-ux-icon.png" alt="UI/UX Design Icon" class="h-12 w-12">
+                    <div>
+                        <h3 class="font-bold text-lg">UI/UX Design</h3>
+                        <p class="text-gray-700">Learn the essentials of user-centered design and UX research.</p>
+                        <button class="mt-2 bg-yellow-500 text-white px-3 py-1 rounded-lg hover:bg-yellow-400">Explore</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-teal-600 bg-opacity-60 py-4 text-center text-gray-800 mt-8">
+        <p>&copy; 2023 3MTT. All rights reserved.</p>
+    </footer>
+
+    <!-- Floating Action Button for Help -->
+    <div id="helpButton" title="Need Help?" class="fixed bottom-5 right-5 bg-green-500 text-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg cursor-pointer hover:bg-green-400 transition">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 22c-1.1 0-2-.9-2-2h4c0 1.1-.9 2-2 2zM22 16.7c-.5-.5-1.2-.7-1.8-.7-.9 0-1.6.5-2 1.3-.7.2-1.5.3-2.2.3s-1.5-.1-2.2-.3c-.4-.7-1.1-1.3-2-1.3-.6 0-1.3.2-1.8.7-.4-.6-.5-1.3-.5-2v-1c1.1-1.5 2.4-3 3.4-4.5.5-1.2.7-2.5.7-3.9 0-1.6-.4-3.2-1.2-4.5C12.8 2.1 11.7 2 11.5 2H11c-.1 0-1.3.1-1.7.7C8.4 3.5 8 5.1 8 6.7c0 1.4.2 2.7.7 3.9 1.1 1.6 2.4 3 3.4 4.5v1c0 .7-.1 1.4-.5 2h4.1c-.2-.6-.4-1.2-.4-1.9 0-1.7 1.2-3 2.8-3.1.3-.6.8-.9 1.4-.9s1.1.3 1.4.9c.7.1 1.3.6 1.8 1.1V16.7z"/></svg>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
