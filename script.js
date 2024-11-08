@@ -1,6 +1,6 @@
 // script.js
 
-const API_TOKEN = "YOUR_HUGGING_FACE_API_KEY"; // Replace with your Hugging Face API token
+const API_TOKEN = "My_HUGGING_FACE_API_KEY"; // Hugging Face API token
 
 // FAQ Carousel Logic
 let currentFAQIndex = 0;
